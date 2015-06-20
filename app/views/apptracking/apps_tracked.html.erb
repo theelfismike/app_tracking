@@ -10,6 +10,13 @@
 }
 </style>
 
+<script>
+    $(document).ready(function () {
+                $("#apptable").tablesorter({sortList: [[5,1]]});
+            }
+    );
+</script>
+
 <div class="page-header">
   <h3>
     Your Tracked Apps
@@ -27,7 +34,7 @@
           <%= image_tag "android.png", width:"100"%>
         </div>
         <div class ='table-responsive'>
-          <table class="table">
+          <table id="apptable" class="tablesorter">
             <thead>
               <tr>
                 <th> </th>
@@ -35,6 +42,7 @@
                 <th>Market</th>
                 <th>Current Version</th>
                 <th>Updated Date*</th>
+                <th style="display:none;"></th>
                 <th class='col-sm-1'>Details</th>
                 <th class='col-sm-1'>Delete</th>
               </tr>
@@ -54,6 +62,7 @@
                 <td><%= app.versions.last.market %></td>
                 <td class="td-centered"><%= app.versions.last.current_version %></td>
                 <td><%= app.versions.last.updated_date.strftime('%B %e, %Y ') %></td>
+                <td style="display:none;"><%= app.versions.last.updated_date.strftime('%Y%m%d') %></td>
                 <td>
                   <div class="btn-group btn-group-justified" width=10px>
                     <a href="/app_details/<%= app.id %>" class="btn btn-primary">

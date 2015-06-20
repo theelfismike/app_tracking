@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require tablesorter
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
